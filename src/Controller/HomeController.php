@@ -13,7 +13,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        return $this->redirect('http://localhost:8000/article');
+        return $this->redirect('/article');
 
     }
 }
