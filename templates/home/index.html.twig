@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+
+    <section>
+        <div class="container">
+
+            {% for item in heros %}
+
+            <div class="row d-flex justify-content-around">
+
+                <div class="col mt-4 py-5">
+                    <div>
+                        <h3 class="titre_heros"> {{ item.titre }}</h3>
+                    </div>
+
+                    <br>
+
+                    <div class="mt-4">
+                        <h3 class="sous_heros text-muted"> {{ item.soustitre }}</h3>
+                    </div>
+                    <br>
+
+                    <div class="mt-4">
+                        <h3 class="sous_heros text-muted"> {{ item.prix }}</h3>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="mt-5 ">
+                        <a href="/article/{{ item.id }}" class="btn bg-dark text-white btn-block btn-lg">Explorer</a>
+                    </div>
+
+
+                </div>
+
+                <div class="col">
+                    <img src="/heros/{{ item.image }}" class="shadow-lg mb-5 rounded img-fluid img-heros" alt="image">
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

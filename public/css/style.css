@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar{
+    padding: 20px !important;
+}
+
+.nav-link{
+    color: whitesmoke !important;
+}
+
+
+.nav-link:hover{
+    color: #43db43 !important;
+}
+
+.img-heros{
+    width: 700px !important;
+}
+
+.titre_heros{
+    font-size: 40px !important;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    color: #43db43 !important;
+}
+
+.sous_heros{
+    font-size: 25px !important;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}

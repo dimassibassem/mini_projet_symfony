@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+
+
+    <br>
+    <br>
+
+    <section class="form">
+        <div class="container">
+
+
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6">
+                    {{ form_start(form) }}
+
+                    <div class="mb-3">
+                        {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_row(form.nom , {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_row(form.prenom  , {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.email , 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_row(form.email , {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+
+                    {{ form_row(form.password) }}
+
+                    {{ form_end(form) }}
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
