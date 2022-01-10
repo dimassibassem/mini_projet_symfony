@@ -1,104 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Music{% endblock %}</title>
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <style>
-            .form-signin {
-                width: 100%;
-                max-width: 400px;
-                padding: 30px;
-                margin: auto;
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Music{% endblock %}</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
 
-            .form-signin .checkbox {
-                font-weight: 400;
-            }
+        .form-signin {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            margin: auto;
+        }
 
-            .form-signin .form-floating:focus-within {
-                z-index: 2;
-            }
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
 
-            .form-signin input[type="email"] {
-                margin-bottom: -1px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
 
-            .form-signin input[type="password"] {
-                margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
 
-        </style>
-    </head>
-    <body>
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
-    <header>
-        <nav style="background-color:#827ffe;" class="navbar navbar-expand-lg navbar-light ">
-            <div class="container-fluid">
-                <a class="navbar-brand text-white" href="{{ path('home') }}">Commerce</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+    </style>
+</head>
+<body>
+
+<header>
+    <nav style="background-color:#827ffe;" class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="{{ path('home') }}">Commerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('article') }}">Nos articles</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a style class=" nav-link" href="#">Actualités</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+
+                </ul>
+
+                <ul class="navbar-nav d-flex justify-content-end">
+
+
+                    {% if app.user %}
+
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('article') }}">Nos articles</a>
+                            <a class="nav-link">{{ app.user.nom }}  {{ app.user.prenom }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a style class=" nav-link" href="#">Actualités</a>
-                        </li>
+
+                    {% else %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a class="nav-link" href="{{ path('register') }}">Inscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
                         </li>
 
 
-                    </ul>
-
-                    <ul class="navbar-nav d-flex justify-content-end">
+                    {% endif %}
 
 
-                        {% if app.user %}
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" >{{ app.user.nom }}  {{  app.user.prenom }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-                            </li>
-
-
-                        {% else %}
-
-                            <li class="nav-item">
-                                <a class="nav-link"  href="{{ path('register') }}">Inscription</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-                            </li>
-
-
-                        {% endif %}
-
-
-                    </ul>
-                </div>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
-        {% block body %}{% endblock %}
+{% block body %}{% endblock %}
 
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    </body>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+</body>
 </html>
