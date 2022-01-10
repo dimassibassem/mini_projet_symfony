@@ -2,16 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Heros;
+use App\Entity\articles;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class HerosCrudController extends AbstractCrudController
+class ArticlesCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Heros::class;
+        return articles::class;
     }
 
 
@@ -22,8 +22,8 @@ class HerosCrudController extends AbstractCrudController
             TextField::new('soustitre'),
             TextField::new('prix'),
             ImageField::new("image")
-                ->setBasePath('heros/')
-                ->setUploadDir('public/heros')
+                ->setBasePath('articles/')
+                ->setUploadDir('public/articles')
                -> setUploadedFileNamePattern('[randomhash].[extension]')
         ];
     }

@@ -10,24 +10,24 @@
 
         <div class="container">
 
-            {% for item in heros %}
+            {% for item in articles %}
 
                 <div class="row d-flex justify-content-around">
 
                     <div class="col mt-4 py-5">
                         <div>
-                            <h3 class="titre_heros"> {{ item.titre }}</h3>
+                            <h3 style="color: #827ffe;" class="titre_articles"> {{ item.titre }}</h3>
                         </div>
 
                         <br>
 
                         <div class="mt-4">
-                            <h3 class="sous_heros text-muted"> {{ item.soustitre }}</h3>
+                            <h3 class="sous_articles text-muted"> {{ item.soustitre }}</h3>
                         </div>
                         <br>
 
                         <div class="mt-4">
-                            <h3 class="sous_heros text-muted"> {{ item.prix }} DT</h3>
+                            <h3 class="sous_articles text-muted"> {{ item.prix }} DT</h3>
                         </div>
                         <br>
                         <br>
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="col">
-                        <img src="/heros/{{ item.image }}" class="shadow-lg mb-5 rounded img-fluid img-heros"
+                        <img src="/articles/{{ item.image }}" class="shadow-lg mb-5 rounded img-fluid img-articles"
                              alt="image">
                     </div>
                 </div>

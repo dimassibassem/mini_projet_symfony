@@ -20,12 +20,12 @@ final class Version20220103150049 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE heros ADD prix NUMERIC(10, 0) NOT NULL');
+        $this->addSql('ALTER TABLE articles ADD prix NUMERIC(10, 0) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE heros DROP prix');
+        $this->addSql('ALTER TABLE articles DROP prix');
     }
 }

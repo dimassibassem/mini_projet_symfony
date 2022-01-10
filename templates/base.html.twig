@@ -2,14 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Music{% endblock %}</title>
+    <title>{% block title %}Commerce{% endblock %}</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
-
         .form-signin {
             width: 100%;
             max-width: 400px;
@@ -69,20 +68,27 @@
 
                 <ul class="navbar-nav d-flex justify-content-end">
 
-
                     {% if app.user %}
-
 
                         <li class="nav-item">
                             <a class="nav-link">{{ app.user.nom }}  {{ app.user.prenom }}</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                         </li>
+                        {% if app.user.roles[0] == "ROLE_ADMIN" %}
+                            <li class="nav-item">
 
+                                    <a class="nav-link" href="/admin">
+                                        Dashboard
+                                        <img style="width: 20px; height: 20px"
+                                             src="https://cdn4.iconfinder.com/data/icons/miscellaneous-44/24/dashboard-command-control-admin-512.png"/>
+                                    </a>
 
+                            </li>
+                        {% endif %}
                     {% else %}
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('register') }}">Inscription</a>
                         </li>

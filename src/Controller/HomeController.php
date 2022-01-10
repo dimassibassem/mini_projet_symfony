@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Heros;
+use App\Entity\articles;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Heros;
+use App\Entity\articles;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Heros|null find($id, $lockMode = null, $lockVersion = null)
- * @method Heros|null findOneBy(array $criteria, array $orderBy = null)
- * @method Heros[]    findAll()
- * @method Heros[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method articles|null find($id, $lockMode = null, $lockVersion = null)
+ * @method articles|null findOneBy(array $criteria, array $orderBy = null)
+ * @method articles[]    findAll()
+ * @method articles[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class HerosRepository extends ServiceEntityRepository
+class ArticlesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Heros::class);
+        parent::__construct($registry, articles::class);
     }
 
     // /**
-    //  * @return Heros[] Returns an array of Heros objects
+    //  * @return articles[] Returns an array of articles objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class HerosRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Heros
+    public function findOneBySomeField($value): ?articles
     {
         return $this->createQueryBuilder('h')
             ->andWhere('h.exampleField = :val')

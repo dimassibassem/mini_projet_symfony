@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Heros;
+use App\Entity\articles;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,10 +22,10 @@ class ArticleController extends AbstractController
     public function index(): Response
     {
 
-        $heros = $this->entityManager->getRepository(Heros::class)->findAll();
+        $articles = $this->entityManager->getRepository(articles::class)->findAll();
 
         return $this->render('home/index.html.twig' , [
-            'heros' =>$heros
+            'articles' =>$articles
         ]);
     }
 
@@ -33,10 +33,10 @@ class ArticleController extends AbstractController
     public function getArticle($id): Response
     {
 
-        $hero = $this->entityManager->getRepository(Heros::class)->findOneById($id);
+        $article = $this->entityManager->getRepository(articles::class)->findOneById($id);
 
         return $this->render('home/vente.html.twig' , [
-            'hero' =>$hero
+            'article' =>$article
         ]);
     }
 

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Entity\Heros;
+use App\Entity\articles;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,10 +47,10 @@ class ContactController extends AbstractController
     public function index(): Response
     {
 
-        $heros = $this->entityManager->getRepository(Heros::class)->findAll();
+        $articles = $this->entityManager->getRepository(articles::class)->findAll();
 
         return $this->render('contact/contact.html.twig', [
-            'heros' => $heros
+            'articles' => $articles
         ]);
     }
 
