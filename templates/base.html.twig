@@ -54,13 +54,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('article') }}">Nos articles</a>
                     </li>
-
+                    {% if app.user %}
+                    {% if app.user.roles[0] == "ROLE_ADMIN" %}
                     <li class="nav-item">
-                        <a style class=" nav-link" href="#">Actualités</a>
+                        <a style class=" nav-link" href="/messages">Messages</a>
                     </li>
 
+                    {% endif %}
+                    {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
+                        <a class="nav-link" href="/contact">Contactez-nous</a>
                     </li>
 
 

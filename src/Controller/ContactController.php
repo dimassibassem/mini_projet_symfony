@@ -27,11 +27,6 @@ class ContactController extends AbstractController
         $email=  $request->request->get('email');
         $nom=  $request->request->get('nom');
 
-
-
-
-
-
         $contact = new Contact();
         $contact->setSubject($subject);;
         $contact->setMessage($message);
@@ -43,6 +38,19 @@ class ContactController extends AbstractController
         $em->flush();
         return $this->redirect("/contact");
     }
+
+    #[Route('/messages', name: 'messages')]
+    public function messages(): Response
+    {
+        $messages = $this->entityManager->getRepository(Contact::class)->findAll();
+
+        return $this->render('messages/messages.html.twig', [
+            'messages' => $messages
+        ]);
+    }
+
+
+
     #[Route('/contact', name: 'contact')]
     public function index(): Response
     {
